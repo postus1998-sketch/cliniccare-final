@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClinicCare - ระบบคิวคลินิก</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>🏥 ClinicCare</h1>
+      <p>ระบบบริหารคิวนัดหมายและประวัติการรักษาเบื้องต้น</p>
+    </div>
+    <div class="today" id="today"></div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-page="dashboard">📊 หน้าหลัก</button>
+    <button class="tab" data-page="queue">🎫 จัดการคิว</button>
+    <button class="tab" data-page="appointments">📅 นัดหมาย</button>
+    <button class="tab" data-page="patients">👤 ผู้ป่วย</button>
+    <button class="tab" data-page="history">🩺 ประวัติการรักษา</button>
+  </nav>
+
+  <main>
+    <section id="dashboard" class="page active">
+      <h2>ภาพรวมวันนี้</h2>
+      <div class="cards">
+        <div class="card"><span>ผู้ป่วยทั้งหมด</span><strong id="statPatients">0</strong></div>
+        <div class="card"><span>นัดหมายวันนี้</span><strong id="statAppointments">0</strong></div>
+        <div class="card"><span>รอพบแพทย์</span><strong id="statWaiting">0</strong></div>
+        <div class="card"><span>เสร็จสิ้น</span><strong id="statCompleted">0</strong></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-title">
+            <h3>คิววันนี้</h3>
+            <button class="btn" onclick="showPage('queue')">จัดการคิว</button>
+          </div>
+          <div id="dashboardQueue"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>เมนูด่วน</h3></div>
+          <div class="quick-actions">
+            <button onclick="showPage('appointments')">➕ เพิ่มนัดหมาย</button>
+            <button onclick="showPage('patients')">👤 ลงทะเบียนผู้ป่วย</button>
+            <button onclick="showPage('history')">🩺 บันทึกการรักษา</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="queue" class="page">
+      <div class="section-head">
+        <div><h2>🎫 จัดการคิว</h2><p>เรียกคิวและเปลี่ยนสถานะการรับบริการ</p></div>
+        <input type="date" id="queueDate">
+      </div>
+      <div class="panel">
+        <div id="queueTable"></div>
+      </div>
+    </section>
+
+    <section id="appointments" class="page">
+      <div class="section-head">
+        <div><h2>📅 นัดหมาย</h2><p>สร้างและดูรายการนัดหมาย</p></div>
+        <button class="btn primary" onclick="openAppointmentModal()">+ เพิ่มนัดหมาย</button>
+      </div>
+      <div class="panel">
+        <div class="filter-row">
+          <label>วันที่ <input type="date" id="appointmentDate"></label>
+          <button class="btn" onclick="loadAppointments()">ค้นหา</button>
+        </div>
+        <div id="appointmentsTable"></div>
+      </div>
+    </section>
+
+    <section id="patients" class="page">
+      <div class="section-head">
+        <div><h2>👤 ผู้ป่วย</h2><p>ทะเบียนผู้ป่วยและข้อมูลพื้นฐาน</p></div>
+        <button class="btn primary" onclick="openPatientModal()">+ ลงทะเบียนผู้ป่วย</button>
+      </div>
+      <div class="panel">
+        <input class="search" id="patientSearch" placeholder="ค้นหาชื่อ รหัส หรือเบอร์โทร..." oninput="loadPatients()">
+        <div id="patientsTable"></div>
+      </div>
+    </section>
+
+    <section id="history" class="page">
+      <div class="section-head">
+        <div><h2>🩺 ประวัติการรักษา</h2><p>บันทึกอาการ การวินิจฉัย และการรักษาเบื้องต้น</p></div>
+        <button class="btn primary" onclick="openVisitModal()">+ บันทึกการรักษา</button>
+      </div>
+      <div class="panel">
+        <div class="filter-row">
+          <label>เลือกผู้ป่วย
+            <select id="historyPatient" onchange="loadPatientHistory()"></select>
+          </label>
+        </div>
+        <div id="patientProfile"></div>
+        <div id="visitHistory"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal()">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

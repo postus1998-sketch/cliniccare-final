@@ -1,0 +1,13 @@
+{
+  "name": "clinic-queue-system",
+  "version": "1.0.0",
+  "description": "ระบบบริหารคิวนัดหมายคลินิกและบันทึกประวัติการรักษาเบื้องต้น",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

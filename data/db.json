@@ -1,0 +1,101 @@
+{
+  "patients": [
+    {
+      "id": "P001",
+      "name": "ta mjd",
+      "phone": "0670777777",
+      "birthDate": "2004-06-05",
+      "gender": "ชาย",
+      "allergy": "แพ้กุ้ง",
+      "createdAt": "2026-09-15T07:37:05.624Z"
+    },
+    {
+      "id": "P002",
+      "name": "กะตุย",
+      "phone": "084676767",
+      "birthDate": "2009-07-06",
+      "gender": "หญิง",
+      "allergy": "แพ้คนเยอะ โรคดารา",
+      "createdAt": "2026-09-15T07:46:03.706Z"
+    },
+    {
+      "id": "P003",
+      "name": "tama",
+      "phone": "45354636",
+      "birthDate": "1988-07-05",
+      "gender": "ชาย",
+      "allergy": "ขนแมว",
+      "createdAt": "2026-09-15T10:38:27.501Z"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "A001",
+      "patientId": "P001",
+      "date": "2026-09-15",
+      "time": "09:00",
+      "doctor": "แพทย์ทั่วไป",
+      "reason": "",
+      "queueNo": 1,
+      "status": "completed",
+      "createdAt": "2026-09-15T07:37:44.389Z",
+      "updatedAt": "2026-09-15T07:37:52.940Z"
+    },
+    {
+      "id": "A002",
+      "patientId": "P002",
+      "date": "2026-09-15",
+      "time": "09:00",
+      "doctor": "นพ.กิตติ",
+      "reason": "-",
+      "queueNo": 2,
+      "status": "completed",
+      "createdAt": "2026-09-15T08:21:47.154Z",
+      "updatedAt": "2026-09-15T08:21:59.411Z"
+    },
+    {
+      "id": "A003",
+      "patientId": "P003",
+      "date": "2026-09-15",
+      "time": "08:00",
+      "doctor": "นพ.กิตติ",
+      "reason": "-",
+      "queueNo": 3,
+      "status": "completed",
+      "createdAt": "2026-09-15T10:39:16.406Z",
+      "updatedAt": "2026-09-15T10:39:28.460Z"
+    }
+  ],
+  "visits": [
+    {
+      "id": "V001",
+      "patientId": "P001",
+      "appointmentId": "",
+      "date": "2026-09-15",
+      "symptoms": "ไออย่างรุนแรง",
+      "diagnosis": "คออักแสบ",
+      "bloodPressure": "",
+      "temperature": "39",
+      "weight": "58",
+      "treatment": "ยา",
+      "medicine": "",
+      "note": "",
+      "createdAt": "2026-09-15T07:39:37.818Z"
+    },
+    {
+      "id": "V002",
+      "patientId": "P002",
+      "appointmentId": "",
+      "date": "2026-09-15",
+      "symptoms": "กลัวอย่างมาก",
+      "diagnosis": "แพ้คน",
+      "bloodPressure": "120/70",
+      "temperature": "35",
+      "weight": "60",
+      "treatment": "การพูดคุยกับคน",
+      "medicine": "-",
+      "note": "-",
+      "createdAt": "2026-09-15T08:23:32.613Z"
+    }
+  ]
+}
